@@ -1,0 +1,117 @@
+\documentclass{llncs}
+
+% ======= Packages ======
+
+%    ### General ###
+%\usepackage{latexsym}
+\usepackage{enumerate}
+
+\usepackage{amssymb,amsmath}   %
+%\usepackage{amsthm} % theorem environment
+
+%    ### Format ###
+%\usepackage{a4wide}     %% wide page
+%\usepackage{times}      %% small fonts
+%\usepackage{fullpage}
+
+
+%    ### Logic and Theoretical Computer Science ###
+\usepackage{stmaryrd}
+\usepackage[all, knot]{xy}%%xy-pics
+\usepackage{verbatim}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+
+
+%    ### Game Theory ###
+
+%\usepackage{xspace}
+%\usepackage{tikz}                %avoid multiple call !!
+  %\usetikzlibrary{arrows,shapes,automata,backgrounds,petri,fit,decorations.pathmorphing}
+
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{5pt}
+
+%\usepackage{lgcommands}
+\usepackage{tikz,subfigure}
+   \usetikzlibrary{shapes.geometric}
+
+%    ### Linguistics ###
+%\usepackage{tipa}   % International Phonetic Alphabet
+
+%\usepackage{qtree}              %basicly   qtree and tikz-qtree do the samething
+%\usepackage{tikz}                  % avoid multiple call !!
+%\usepackage{tikz-qtree}            
+
+%\usepackage{gb4e}         % NOTE!!!   This should be the LAST  usepackage   call!!!!!!!
+%\usepackage{lingmacros}
+% ======== Definitions ========
+
+\newcommand{\intp}[1]{\llbracket #1 \rrbracket}         %interpretation
+
+
+% ======== Title ========
+
+\title{Variations on a Bayesian Theme: Comparing Bayesian Models of Referential Reasoning}
+\author{Michael Franke \and Ciyang Qing}
+\institute{Institute for Logic, Language and Computation}
+
+
+% ======== Content ========
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Recent developments in Bayesian experimental pragmatics have received much attention, as it provides us with a quantitative model formalizing core concepts in traditional pragmatic theories and the predictions it makes fit empirical data nicely. Despite its theoretical advantage and empirical success, there are still several conceptual issues in the Bayesian Rational Speech Act (RSA) model that need further clarification. In this paper, we analyze a few design choices made in RSA that have intuitively equally plausible alternatives motivated from related game-theoretic approaches to pragmatics, and compare the original RSA model with these alternatives to empirical data. The result suggests that while RSA is better than most other variations, there is still room for improvement.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\input{01_intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Referential Games and the RSA model}
+
+\input{02_RSA}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Alternatives in Design Choices}
+
+\input{03_alternatives}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Experiment}
+
+\input{04_experiment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Model Comparison}
+
+\input{05_model_comparison}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+
+\input{06_conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{splncs}
+\bibliography{variations_ref}
+
+
+\end{document}

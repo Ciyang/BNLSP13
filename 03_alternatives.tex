@@ -1,0 +1,58 @@
+The RSA model has the theoretical advantage in that it is quantitative, and it has been shown to be able to fit the empirical data well. However, if we want to gain more insight about communication involving referential expressions from its success, it will be worthwhile to examine the model carefully to pin down the major components, spell out the design choices and the underlying assumptions, test their contribution to the predictive power of the model through comparison with the alternatives and scrutinize their implications thereof. In this section, we will carry out a conceptual analysis of the RSA model by comparing it to the closely related game-theoretic approaches to pragmatics, to define a class of alternative models. We will then compare the predictions of these models to the empirical data in later sections. 
+
+First and foremost, there are three closely related notions, i.e. \emph{belief}, \emph{goal} and \emph{action}, that play a crucial role in the RSA as well as game-theoretic models. The relation and distinction between them can be best illustrated by looking at (\ref{Bayesian_speaker}):
+$$\sigma(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\log \mathcal{U}(t\mid \intp{m})-\mbox{Cost}(m))) \enspace .$$
+The term $\mathcal{U}(t\mid \intp{m})$ is the speaker's \emph{belief} about the listener's interpretation of the utterance. The expected utility $\mbox{U}(m,t)=\log \mathcal{U}(t\mid \intp{m})-\mbox{Cost}(m)$ describes the speaker's \emph{goal} of communication, i.e. inducing a belief that is as close as his own with minimal effort. The production rule $\sigma(m \mid t)$ on the left-hand side specifies the speaker's \emph{action}, as it defines the probability the speaker actually chooses an action, i.e. uttering a particular expression. The soft-max rule connects these notions, as a (sub-)rational agent's action depends on his belief and goal. While the RSA and game-theoretic models all share this general architecture in their designs, they vary in the specific interpretations of the three ingredients, which reflect different views and emphasis on language and communication and give rise to a series of interesting and important empirical questions. Again, let us continue with the speaker model (\ref{Bayesian_speaker}) to illustrate some points of divergence and formally define the corresponding alternatives.
+
+First of all, although \cite{Frank} claims that the empirically measured perceptual salience is used to capture the notion of common knowledge between the speaker and the listener, it turns out that the speaker's production rule (\ref{Bayesian_speaker}) simply does not take the listener's salience prior $\mathcal{S}(t)$ into account in her literal listener model (\ref{Bayesian_literal}). This makes it unclear in what sense the speaker knows the listener's perceptual salience. A natural variant, which is used in some game-theoretic models, would be to replace the literal listener's uniform distribution $\mathcal{U}(t)$ in (\ref{Bayesian_literal}) with the salience prior $\mathcal{S}(t)$. This will lead to the alternative production rule:
+\begin{equation} \label{Bayesian_speaker_salience}
+\sigma_\mathcal{S}(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\log \mathcal{S}(t\mid \intp{m})-\mbox{Cost}(m))) \enspace .
+\end{equation}
+
+
+Secondly, the informativeness of an utterance $m$, which is a crucial part of the communication goal, is measured in the RSA model in terms of how close the induced belief of the literal listener is from that of the speaker's own belief. This means that the RSA model sees the goal of communication as conveying belief. While it is normally true that language does convey the belief of the speaker, it is questionable at least in this referential scenario whether letting the listener form a proper belief is the ultimate goal of the communication. After all, if the speaker wants to refer to something, it seems that in the end what matters is whether the listener actually picks out the intended referent successfully (e.g., when the speaker wants the listener to pass something). We might call this view \emph{action-oriented}, in contrast to the \emph{belief-oriented} view of communication which the RSA model adopts, as it interprets the goal of communication as invoking the intended action rather than forming an accurate belief. \footnote{Note that the two views are definitely intimately related, despite our emphasis on their differences here. An accurate belief is usually helpful to choosing a desired action. In fact, forming a belief can itself be seen as an action that the listener performs, which might well be all that the speaker cares about in many everyday situations, e.g. casual talks or responses to inquiries of information. Also, the relevant actions might vary greatly across situations which makes belief formation a practical alternative to serve as the goal. Nevertheless, they are still essentially different views in spite of the fact that they often coincide in practice. The referential communication scenario we investigate in this paper reflects the distinction.} Thus, according to this view, the informativeness of a message would be measured as the probability of the listener choosing the intended referent. Formally speaking, we have the action-oriented speaker model
+  
+\begin{equation} \label{Bayesian_speaker_action}
+\sigma_\mathrm{a}(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\rho_0(t\mid m)-\mbox{Cost}(m))) \enspace .
+\end{equation}
+
+Hence we have four types of speaker models that differ in either the speaker's belief about the literal listener, or the speaker's goal of communication. We now introduce a uniform notation $\sigma_{xy},\ x\in\{a,b\},y\in\{\mathcal{U},\mathcal{S}\}$ for them:
+\begin{equation} \label{Bayesian_speaker_uniform_action}
+\sigma_{\mathrm{a}y}(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot ( y(t\mid m)-\mbox{Cost}(m))),
+\end{equation}
+\begin{equation} \label{Bayesian_speaker_uniform_belief}
+\sigma_{\mathrm{b}y}(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\log y(t\mid m)-\mbox{Cost}(m))),
+\end{equation}
+where $\mathcal{U}$ is the uniform prior and $\mathcal{S}$ is the salience prior. For example, in the original RSA model, the speaker does not take listener's salience prior into account and he has a belief-oriented goal of communication, thus it will be denoted as $\sigma_{\mathrm{b}\mathcal{U}}$
+
+Finally, the original RSA speaker model in \cite{Frank} has $\mbox{Cost}(m)=0$ for all $m$, which means that the potential speaker preference in different utterances is not taken into account. As we previously pointed out, our intuition seems to suggest a preference for nouns over adjectives as referential expressions. Since it is an empirical question whether, to what direction or to what extent such a preference exists, we leave open all the possibilities. Technically speaking, since only the difference in costs matters, we define the cost function using a constant $c\in \mathbb{R}$
+\begin{equation} \label{cost}
+\mbox{Cost}(m)=c \mbox{ if } m \mbox{ is an adjective and }0 \mbox{ otherwise} \enspace . 
+\end{equation}
+If $c>0$ it means there is a preference for nouns and if $c<0$ then the preference is for adjectives. No preference exists if $c=0$.
+
+Now we turn to the listener model (\ref{Bayesian_rec_update}), where the boundary between belief, goal and action becomes less clear:
+$$\rho(t \mid m) \propto \mathcal{S}(t)\cdot \sigma(m \mid t) \enspace . $$
+
+Let us start from the relatively clear part. As pointed out previously, the likelihood term $\sigma(m \mid t)$ is the listener's belief about how the speaker behaves. One natural question is to what extent the listener's belief correlate with the actual production. We thus treat the speaker's production term $\sigma(m \mid t)$ in the listener's model as a parameter, making the association with a belief about production of the listener model explicit:
+\begin{equation} \label{listener-production}
+\rho(\sigma_{xy})(t \mid m) \propto \mathcal{S}(t)\cdot \sigma_{xy}(m \mid t) \enspace .
+\end{equation}
+Note that the speaker's production rule has two parameters $\lambda_\mathrm{S},c$ which are also be included in the above specification of the listener model.
+
+Next, even though our intuition suggests different objects have different perceptual salience and thus might affect our judgment, it is after all an empirical question whether it is relevant in the interpretation of referential expressions. It is in principle possible that the listener does not take into account the perceptual salience in his reasoning, which means he has a uniform prior over the referents:
+\begin{equation} \label{listener-production-uniform}
+\rho_{\mathcal{U}}(\sigma_{xy})(t \mid m) \propto \mathcal{U}(t)\cdot \sigma_{xy}(m \mid t) \enspace .
+\end{equation}
+
+Finally, since the RSA model adopts a belief-oriented view on the goal of communication, its listener model only consists of the belief about the intended referent after hearing the utterance, obtained by a Bayes update. However, according to the action-oriented view, this is not quite the end of the story. The listener often needs to decide the exact referent of a referential expression. (Again, consider the case in which the listener is asked to pass something.) Hence in such cases the listener will choose an object that he (soft-)maximally believes to be the intended referent. Formally speaking, the action-oriented listener model would be
+\begin{equation} \label{listener-action}
+\rho_{\mathrm{a}v}(\sigma_{xy})(t \mid m) \propto \exp(\lambda_\mathrm{L} \cdot \rho_{\mathrm{b}v}(\sigma_{xy})(t \mid m) ),
+\end{equation}
+where $v\in\{\mathcal{U},\mathcal{S}\}$, $\lambda_\mathrm{L}$ is the parameter measuring the listener's degree of rationality, and $\rho_{\mathrm{b}v}$ is the belief-oriented model that does the Bayes update:
+\begin{equation} \label{listener-belief}
+\rho_{\mathrm{b}v}(\sigma_{xy})(t \mid m) \propto v(t)\cdot \sigma_{xy}(m \mid t) \enspace .
+\end{equation}
+For instance, the original RSA listener model is a belief-oriented one with the perceptual salience as prior, whose belief about the speaker is $\sigma_{\mathrm{b}\mathcal{U}}$, hence it is denoted as $\rho_{\mathrm{b}\mathcal{S}}(\sigma_{\mathrm{b}\mathcal{U}})$.
+
+
