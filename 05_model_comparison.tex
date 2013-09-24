@@ -6,9 +6,9 @@ rationality $\lambda_\mathrm{S}$, the cost of adjectives $c$, and, for
 those listener models that have an action-oriented communication goal
 , the listener's degree of rationality $\lambda_\mathrm{L}$. Since
 there is no principled theory to determine the value of the
-parameters, we will rely on relatively uninformed hyperpriors
+parameters, we will rely mostly on relatively uninformed hyperpriors
 (so-called to distinguish them from the salience priors). Based on a
-specification of hyperpriors, we calculate the models' \emph{evidence}
+specification of hyperpriors, we calculate the models' \emph{evidences}
 and compare them by their \emph{Bayes factors}. The evidence of a
 model $M$ is the weighted average of the likelihood of observing the
 data under all parameter values:
@@ -24,7 +24,7 @@ question:
 \begin{align}
   K^{M_1}_{M_2} = \frac{\mathrm{Ev}(M_1)}{\mathrm{Ev}(M_2)} \enspace .
 \end{align}
-Model $M_1$ makes the data more likely whenever $K^{M_1}_{M_2}$, but
+Model $M_1$ makes the data more likely whenever $K^{M_1}_{M_2} > 1$, but
 normally only a Bayes factor $K^{M_1}_{M_2} >3$ (or sometimes
 $K^{M_1}_{M_2} > 5$) is considered substantial. Values $K^{M_1}_{M_2}
 > 10$ are considered strong evidence.
@@ -47,8 +47,8 @@ We are uncertain about the rationality of the speaker:
 \end{equation}
 which is a uniform distribution over $(0,11)$. Excluding
 $\lambda$-values $\ge 11$ serves practical purposes only, but is
-innocuous since the regions of maximum a posteriori likelihood of
-$\lambda$ lies safely in the chosen interval for all models. Next, to
+innocuous since the regions of non-negligible posterior likelihood of
+$\lambda$ lie safely in the chosen interval for all models. Next, to
 allow for the possibility of speaker preferences (nouns over
 adjectives or vice versa), we consider two types of hyperpriors for
 costs $c$. The first hyperprior has $\Pr(c)= \delta(c)$, the Dirac
@@ -72,10 +72,10 @@ into account. Also, it seems that action-oriented models are slightly
 better than their belief-oriented counterparts, even though the
 relevant Bayes factors are not substantial by common
 standards. Finally, our data makes each speaker Model that does allow
-for a speaker preference strongly more plausible than its
-counterpart that does not. A look at the posterior likelihood of $c$
-for each speaker model informs us that our data supports the belief
-that the speakers have a preference for nouns, see
+for a speaker preference strongly more plausible than its counterpart
+that does not. A look at the posterior likelihood of $c$ for each
+speaker model informs us that our data supports the belief in a
+speaker preference for nouns, see
 Figure~\ref{fig:cost_post_s}. \todo{improve plot}
 %
 \begin{table}[htb] 
@@ -116,20 +116,20 @@ into account the preceptual salience of the listener, while having her
 own preference for shape terms over color terms.
 
 
-\paragraph{Listener data.} Each listener models has a speaker model
+\paragraph{Listener data.} Each listener model has a speaker model
 nested inside as a belief of the listener about the speaker's
 behavior. Section~XYZ \todo{cross-reference} introduced a total of 16
 potentially relevant listener models, but we will focus on a selection
 only. For one, we restrict our attention to those listener models that
 are either entirely belief-based or entirely action-based. In other
-words, we exclude models like
+words, we exclude as notionally inconsistent models like
 $\rho_{\mathrm{a}\cdot}(\sigma_{\mathrm{b}\cdot})$ where the receiver
 part assumes an action-based goal structure and the speaker part a
 belief-based goal structure. For another, we assume that the
 listener's model of the speaker is a reasonable one and therefore put
-to the side listener models that have speaker models that are highly
+to the side listener models that embed speaker models that are highly
 implausible, given the speaker data as discussed above. Effectively,
-this discards listener models that include a speaker models that take
+this discards listener models that include speaker models that take
 the listener's salience prior into account. These two principled
 restrictions leave us with four listener models to compare.
 
@@ -200,17 +200,17 @@ latter from ``informed correlated'' hyperpriors of the form:
    \Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S}, M_\mathrm{S}) \cdot \Pr(\lambda_\mathrm{L} \mid D_\mathrm{S}, M_\mathrm{S}),
 \end{align*}
 where the listener's rationality parameter is distributed according to
-the relevant posterior (marginalized over costs). All of the three
-types of informed hyperpriors were tested in two varieties: whether
-the listener takes the sender's preferences into account or not. If he
-does not, the posterior $\Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S},
-M_\mathrm{S})$ is derived from a speaker-hyperprior $\Pr(c) =
-\delta{c}$; otherwise from $\Pr(c) = \mathcal{U}_{(-0.4,0.4)}(c)$.
+the relevant posterior. All of the three types of informed hyperpriors
+were tested in two varieties: whether the listener takes the sender's
+preferences into account or not. If he does not, the posterior
+$\Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S}, M_\mathrm{S})$ is derived
+from a speaker-hyperprior $\Pr(c) = \delta{c}$; otherwise from $\Pr(c)
+= \mathcal{U}_{(-0.4,0.4)}(c)$.
 
 Taken together, we consider two belief-based models, paired with four
 hyperpriors, and two action-based models, paired with six hyperpriors
-(see Table~XYZ\todo{reference}). Comparing these ten Models is meant
-to address the following general questions:
+(see Table~\ref{table:listener mod}). Comparing these ten Models is
+meant to address the following general questions:
 \begin{enumerate}
 \item Is the goal structure assumed by participants in our task
   belief-based or action-based?
@@ -282,7 +282,7 @@ the Models listed in Table~\ref{table:listener mod}.
 \end{table}
 
 The most striking contrast is that models that do not take the
-salience prior into account face much worse than those that do. The
+salience prior into account fare much worse than those that do. The
 data makes a total rejection of models that rely on uninformative
 salience priors strongly plausible.
 
@@ -320,11 +320,12 @@ This latter point is of interest with respect to the findings of Frank
 fit for both production and comprehension data. The
 rational-speech-act model
 $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ with
-fixed parameter $\lambda=1$ is a very poor predictor of our data, both
-for production and for comprehension. Assuming $\lambda =1$ as the
-null hypothesis of a nested-model comparison, we can use the
-Savage-Dickey method to compute a Bayes factor \todo{reference} Let
-$\mathcal{M}$ be the parameterized Model with model
+fixed parameter $\lambda=1$ is a very poor predictor of our data. (We
+focus here on comprehension, but the same applies to production data.)
+Assuming $\lambda =1$ as the null hypothesis of a nested-model
+comparison, we can use the Savage-Dickey method to compute a Bayes
+factor. \todo{reference} Let $\mathcal{M}$ be the parameterized Model
+with model
 $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ and a
 flat hyperprior, not taking costs into account. Given our data we
 should adjust our beliefs in parameter value $\lambda=1$ by the Bayes
