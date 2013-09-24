@@ -222,130 +222,136 @@ to address the following general questions:
   actual level of rationality?
 \end{enumerate}
 
-
-
-
-\begin{table}[htb]
-  \centering
-  \caption{asdf}
-  \begin{tabular}{llr}
-    belief-based 
-    & action-based
-    & 
-    \\
-    $\Pr(\lambda_\mathrm{S},c)$
-    & $\Pr(\lambda_\mathrm{S},c,\lambda_\mathrm{L})$
-    & label
-    \\ \midrule
-    $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot \mathcal{U}_{[0,0]}(c)$
-    & $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-    \mathcal{U}_{[0,0]}(c) \cdot  \mathcal{U}_{(0,11)}(
-    \lambda_\mathrm{L})$
-    & flat, w/o costs
-    \\
-    $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot \mathcal{U}_{(-0.4,0.4)}(c)$
-    & $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-    \mathcal{U}_{(-0.4,0.4)}(c) \cdot  \mathcal{U}_{(0,11)}(
-    \lambda_\mathrm{L})$
-    & flat, with costs
-    \\
-    $\Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S}, M_\mathrm{S})$
-    & $\Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S}, M_\mathrm{S}) \cdot  \mathcal{U}_{(0,11)}(
-    \lambda_\mathrm{L})$
-    & informed uncorrelated, w/o costs
-    \\
-    $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot \mathcal{U}_{(-0.4,0.4)}(c)$
-    & $\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-    \mathcal{U}_{(-0.4,0.4)}(c) \cdot  \mathcal{U}_{(0,11)}(
-    \lambda_\mathrm{L})$
-    & informed uncorrelated, with costs
-    \\
-  \end{tabular}
-  \label{tab:hyperpriors_l}
-\end{table}
-
-
-\vspace{1cm}
-\hrule
-\vspace{1cm}
-
-
-
- Since we want to know how such a belief correlates with the
-actual production, we put two kinds of hyperpriors under
-investigation. On the one hand, the flat-independent hyperpriors treat
-different parameters as independent:
-\begin{equation}\label{hyper-listener-independent}
-\Pr(\lambda_\mathrm{S},c,\lambda_\mathrm{L})=\mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot \Pr(c) \cdot  \mathcal{U}_{(0,11)}( \lambda_\mathrm{L}) \enspace .
-\end{equation}
-On the other hand, the true-correlated hyperpriors use the data from the speaker condition to estimate the hyperpriors for $\lambda_\mathrm{S}$ and $c$, and let $\lambda_\mathrm{L}$ have the same distribution as $\lambda_\mathrm{S}$:
-\begin{equation}\label{hyper-listener-independent}
-\Pr(\lambda_\mathrm{S},c,\lambda_\mathrm{L})=\mathcal{U}_{(0,11)}(\lambda_\mathrm{S} \mid D_\mathrm{S}, M_\mathrm{S}) \,\Pr(c\mid D_\mathrm{S}, M_\mathrm{S})  \,\mathcal{U}_{(0,11)}( \lambda_\mathrm{L} \mid D_\mathrm{S}, M_\mathrm{S}),
-\end{equation}
-and thus put a stronger constraint on the listener's belief about the speaker. 
-
-The comparison result of the speaker models are shown in Table \ref{table:listener mod}. The best model, which is substantially better than the rest, is action-oriented and takes perceptual salience into account. It has a true-correlated speaker model which is action-oriented and does not take perceptual salience nor speaker preference into account. Note that the nested speaker model is different from the best actual speaker model only in that it does not incorporate speaker preference.  
-
+Answers to these questions can be found by comparing the evidences of
+the Models listed in Table~\ref{table:listener mod}.
+%
 \begin{table}[htb] 
-\caption{Listener Model Comparison}
+\caption{Evidences for listener Models}
   \centering 
-  \begin{tabular}{ccccc}
-    rank
-    & model
-    & hyperprior
-    & sp.~pref.
-    & evidence 
-    \\ \hline
-    1 
-    & $\rho_{\mathrm{a}\mathcal{S}}(\sigma_{\mathrm{a}\mathcal{U}})$
-    & true correlated
-    & $-$
-    & 1.11E-003
-    \\ \\
-    2 
-    & $\rho_{\mathrm{ a}\mathcal{S}}(\sigma_{\mathrm{b}\mathcal{U}})$
-    & true correlated
-    & $-$
-    & 2.36E-004
-    \\     
-    3 
+  \begin{tabular}{lccccc}
+    prior type & costs &
+    $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{U}})$ 
     & $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$
-    & flat independent \quad
-    & adj.~or nouns \quad
-    & 1.29E-004
-    \\     
-    4 
-    & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$
-    & flat independent
-    & none
-    & 9.94E-005
-    \\     
-    5 
-    & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$
-    & flat independent
-    & adj.~or nouns
-    & 8.79E-005
+    & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{a}\mathcal{U}})$
+    & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{a}\mathcal{S}})$
+    \\ \midrule
+    flat
+    & no
+    & 1.64e-11
+    & 8.61e-6
+    & 3.55e-11
+    & 2.45e-5
+    \\ 
+    flat
+    & yes
+    & 1.69e-11
+    & 5.31e-5
+    & 4.43e-11
+    & 2.01e-5
+    \\ \addlinespace[0.1cm]
+    informed
+    & no
+    & 9.98e-27
+    & 2.91e-5
+    & 9.16e-12
+    & 2.08e-4
     \\
-    $\vdots$\\
-    14 
-    & $\rho_{\mathrm{b}\mathcal{S}}(\sigma_{\mathrm{b}\mathcal{U}})$
-    & flat independent
-    & adj.~or nouns
-    & 5.31E-005
+    informed
+    & yes
+    & 1.91e-30
+    & 1.59e-6
+    & 3.06e-11
+    & 7.14e-6
+    \\ \addlinespace[0.1cm]
+    informed-correlated
+    & no
+    & NA
+    & NA
+    & 7.98e-29
+    & 1.11e-3
     \\
-    $\vdots$\\
-    19 
-    & $\rho_{\mathrm{b}\mathcal{S}}(\sigma_{\mathrm{b}\mathcal{U}})$
-    & true correlated
-    & $-$
-    & 2.91E-005
+    informed-correlated
+    & yes
+    & NA
+    & NA
+    & 1.70e-36
+    & 2.53e-13
     \\
-    $\vdots$
   \end{tabular}
   \label{table:listener mod}
 \end{table}
 
-Combining the model comparison results for both the speaker and the listener models, it seems that if we treat the speaker's preference as some lexical salience which together with the listener's perceptual salience constitutes the contextual salience of the referential game, then contextual salience actually manifests \emph{lack of} common knowledge between the speaker and the listener rather than the presence of it, since they both have some preference that biases their decisions but they are unaware of each other's such preference. However, there is indeed something common between the speaker and the listener, i.e. the distribution of the degree of rationality. Also, the listener's belief about the speaker is correct modulo the speaker's private lexical salience. 
+The most striking contrast is that models that do not take the
+salience prior into account face much worse than those that do. The
+data makes a total rejection of models that rely on uninformative
+salience priors strongly plausible.
+
+Another eye-catching feature is that there is a clear winner in the
+list. The single best Model, which is substantially better than all
+the others, is action-oriented and takes perceptual salience into
+account. It has an informed-correlated hyperprior and assumes that the
+listener does not take the speaker's preferences into account. This
+result is highly thought-provoking, but should be taken with a grain
+of salt. It might be that we merely got lucky by restricting the range
+of $\lambda_\mathrm{S}$ and $\lambda_\mathrm{L}$ just to a small
+region of reasonably high posterior likelihood for these
+parameters. Further experimentation should tell us whether
+informed-correlated hyperpriors are good predictors in general.
+
+Most generally reliable are the results from flat hyperpriors. Here it
+is interesting to note that all of the models that take salience
+priors into account, with the exception of
+$\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ are
+equally plausible, by common standards of Bayes factor
+comparisons. This is despite the fact that action-based models have an
+additional parameter. It seems that this parameter does not do harm,
+but does help to accommodate the assumption that the listener takes
+the speaker's preferences into account. 
+
+Action-based models are also better at accommodating the idea that the
+listener's estimate of the speaker behavior is roughly correct. The
+belief-based models are substantially or strongly less plausible in
+this case. In other words, action-based models, possibly due to the
+added flexibility of another parameter, are better at explaining
+production and comprehension data in unison.
+
+This latter point is of interest with respect to the findings of Frank
+\& Goodman that a single parameter choice $\lambda=1$ provided a good
+fit for both production and comprehension data. The
+rational-speech-act model
+$\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ with
+fixed parameter $\lambda=1$ is a very poor predictor of our data, both
+for production and for comprehension. Assuming $\lambda =1$ as the
+null hypothesis of a nested-model comparison, we can use the
+Savage-Dickey method to compute a Bayes factor \todo{reference} Let
+$\mathcal{M}$ be the parameterized Model with model
+$\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ and a
+flat hyperprior, not taking costs into account. Given our data we
+should adjust our beliefs in parameter value $\lambda=1$ by the Bayes
+factor (computed approximately via MCMC sampling):
+\begin{align*}
+  K = \frac{P(\lambda=1 \mid D_\mathrm{L} \, , \, \mathcal{M})}{P(\lambda=1
+    \mid \mathcal{M})} \approx \frac{1.25\text{e-9}}{8.18\text{e-2}} =
+  1.52\text{e-8} 
+\end{align*}
+where $D_\mathrm{L}$ is the listener data. That means that our data
+provides very strong evidence that the null hypothesis $\lambda=1$ is
+incorrect.
+
+\bigskip
+
+Combining the model comparison results for both the speaker and the
+listener models, it seems that if we treat the speaker's preference as
+some lexical salience which together with the listener's perceptual
+salience constitutes the contextual salience of the referential game,
+then contextual salience actually manifests \emph{lack of} common
+knowledge between the speaker and the listener rather than the
+presence of it, since they both have some preference that biases their
+decisions but they are unaware of each other's such
+preference. However, there is indeed something common between the
+speaker and the listener, i.e. the distribution of the degree of
+rationality. Also, the listener's belief about the speaker is correct
+modulo the speaker's private lexical salience.
 
 
 %%% Local Variables: 
