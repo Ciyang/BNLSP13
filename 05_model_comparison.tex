@@ -1,23 +1,25 @@
-We use a Bayesian approach to model comparison to find out which model
-best explains the data described in the previous section
-\cite{VandekerckhoveMatzke2013:Model-Compariso}. The models under
-investigation have unspecified parameters: the speaker's degree of of
-rationality $\lambda_\mathrm{S}$, the cost of adjectives $c$, and, for
-those listener models that have an action-oriented communication goal
-, the listener's degree of rationality $\lambda_\mathrm{L}$. Since
-there is no principled theory to determine the value of the
-parameters, we will rely mostly on relatively uninformed hyperpriors
-(so-called to distinguish them from the salience priors). Based on a
-specification of hyperpriors, we calculate the models' \emph{evidences}
-and compare them by their \emph{Bayes factors}. The evidence of a
-model $M$ is the weighted average of the likelihood of observing the
-data under all parameter values:
+We use a Bayesian approach to model comparison
+\cite{Jeffreys1961:Theory-of-Proba,KassRaftery1995:Bayes-Factors,Jaynes2003:Probability-The,VandekerckhoveMatzke2013:Model-Compariso} to find out which
+model best explains the observed data. The models under investigation
+have unspecified parameters: the speaker's degree of of rationality
+$\lambda_\mathrm{S}$, the cost of adjectives $c$, and, for those
+listener models that have an action-oriented communication goal, the
+listener's degree of rationality $\lambda_\mathrm{L}$. Since there is
+no principled theory to determine the value of the parameters, we will
+rely mostly on relatively uninformed hyperpriors (so-called to
+distinguish them from the salience priors). Based on a specification
+of hyperpriors, we calculate the models' \emph{evidences} and compare
+them by their \emph{Bayes factors}. The evidence of a model $M$ is the
+weighted average of the likelihood of observing the data under all
+parameter values:
 \begin{align}
   \label{BMA}
-  \mathrm{Ev}(M)= \int \Pr(\theta) \cdot p(D | M, \theta)\, \mathrm{d}\theta,
+  \mathrm{Ev}(M)= \int \Pr(\theta) \cdot \Pr(D | M, \theta)\, \mathrm{d}\theta,
 \end{align}
 where $\Pr(\theta)$ is the hyperprior over parameter(-tuple) $\theta$
-associated with $M$ and $D$ is the observed data. The Bayes factor
+associated with $M$ and $\Pr(D | M, \theta)$ is the likelihood of the
+observed data $D$ given the model $M$ and each concrete instantiation
+of the parameter(-tuple) $\theta$. The Bayes factor
 $K^{M_1}_{M_2}$ is a comparative measure for the plausibility of model
 $M_1$ over $M_2$, given their respective hyperpriors and the data in
 question:
@@ -65,22 +67,24 @@ together, there are four speaker models, two hyperpriors for each, so
 that we compare eight Models with respect to their evidences.
 
 Evidences of speaker Models were calculated by grid approximation. The
-results are shown in Table \ref{table:speaker mod}. We can see
-\todo{include Hinton diagrams?} that the data very strongly supports
-speaker models that do not take the listener's perceptual salience
-into account. Also, it seems that action-oriented models are slightly
-better than their belief-oriented counterparts, even though the
-relevant Bayes factors are not substantial by common
-standards. Finally, our data makes each speaker Model that does allow
-for a speaker preference strongly more plausible than its counterpart
-that does not. A look at the posterior likelihood of $c$ for each
-speaker model informs us that our data supports the belief in a
-speaker preference for nouns, see
+results are shown as log-evidences in Table \ref{table:speaker
+  mod}. (Notice that the Bayes factor between models is easily
+compared by taking the differences between log-evidences.) We can see
+that the data very strongly supports speaker models that do not take
+the listener's perceptual salience into account. Also, it seems that
+action-oriented models are slightly better than their belief-oriented
+counterparts, even though the relevant Bayes factors are not
+substantial by common standards. Finally, our data makes each speaker
+Model that does allow for a speaker preference strongly more plausible
+than its counterpart that does not. A look at the posterior likelihood
+of $c$ for each speaker model informs us that our data supports the
+belief in a speaker preference for nouns, see
 Figure~\ref{fig:cost_post_s}. \todo{improve plot}
 %
 \begin{table}[htb] 
   \centering 
-  \caption{Evidences of speaker Models}
+  \caption{Log-evidences of speaker Models. The darker a cell's
+    background the higher the evidence.}
   \begin{tabular}{lcccc}
     support of $P(c)$ 
     & $\sigma_{\mathrm{b}\mathcal{U}}$
@@ -89,16 +93,16 @@ Figure~\ref{fig:cost_post_s}. \todo{improve plot}
     & $\sigma_{\mathrm{a}\mathcal{S}}$
     \\ \midrule
     $[0,0]$
-    & 4.93e-30
-    & 3.56e-30
-    & 5.92e-46
-    & 3.09e-69
+    & \cellcolor{lightgray!72} -67.48 
+    & \cellcolor{lightgray!72}  -67.81 
+    & \cellcolor{lightgray!43} -104.14 
+    & \cellcolor{lightgray!0} -157.75
     \\
     $(-0.4,0.4)$
-    & 5.04e-15
-    & 4.02e-15
-    & 4.28e-36
-    & 3.27e-61
+    & \cellcolor{lightgray!100} -32.92 
+    & \cellcolor{lightgray!99} -33.15  
+    & \cellcolor{lightgray!61} \textcolor{lightgray!61}{1}-81.44 
+    & \cellcolor{lightgray!15} -139.27
   \end{tabular} 
   \label{table:speaker mod}
 \end{table}
@@ -157,28 +161,21 @@ implements the assumption that there is a tight correlation between
 the speaker's actual rationality, the listener's actual rationality
 and the listener's beliefs about the speaker's rationality.
 
-Concretely, we call ``flat w/o costs'' the hyperpriors:
+Concretely, we consider the following ``flat'' hyperpriors:
 \begin{align*}
   \Pr(\lambda_\mathrm{S},c) & =
   \mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-  \delta(c) \\
+  \Pr(c) \\
   \Pr(\lambda_\mathrm{S},c,\lambda_\mathrm{L}) & = 
   \mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-    \delta(c) \cdot  \mathcal{U}_{(0,11)}(
+    \Pr(c) \cdot  \mathcal{U}_{(0,11)}(
     \lambda_\mathrm{L}),
 \end{align*}
-for belief-based and action-based models respectively. Hyperpriors
-``flat with costs'' take a wider range of speaker preferences into
-account: 
-\begin{align*}
-  \Pr(\lambda_\mathrm{S},c) & =
-  \mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-  \mathcal{U}_{(-0.4,0.4)}(c) \\
-  \Pr(\lambda_\mathrm{S},c,\lambda_\mathrm{L}) & = 
-  \mathcal{U}_{(0,11)}(\lambda_\mathrm{S}) \cdot
-    \mathcal{U}_{(-0.4,0.4)}(c) \cdot  \mathcal{U}_{(0,11)}(
-    \lambda_\mathrm{L}) \enspace .
-\end{align*}
+for belief-based and action-based models respectively, where $\Pr(c)$
+is the hyperprior for the speaker's preference parameter $c$. When
+$\Pr(x) = \delta(c)$ we have a hyperprior that does not take costs
+into account; otherwise we assume $\Pr(x) =
+\mathcal{U}_{(-0.4,0.4)}(c)$, as before.
 
 Hyperpriors that capture the idea that the listener's beliefs are good
 guesses of speaker behavior are modeled as if informed by the data
@@ -226,56 +223,56 @@ Answers to these questions can be found by comparing the evidences of
 the Models listed in Table~\ref{table:listener mod}.
 %
 \begin{table}[htb] 
-\caption{Evidences for listener Models}
+\caption{Log-evidences for listener Models}
   \centering 
   \begin{tabular}{lccccc}
     prior type & costs &
     $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{U}})$ 
-    & $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$
+    & $\rho_{\mathrm{b}\mathcal{S}}(\sigma_{\mathrm{b}\mathcal{U}})$
     & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{a}\mathcal{U}})$
-    & $\rho_{\mathrm{a}\mathcal{U}}(\sigma_{\mathrm{a}\mathcal{S}})$
+    & $\rho_{\mathrm{a}\mathcal{S}}(\sigma_{\mathrm{a}\mathcal{U}})$
     \\ \midrule
     flat
     & no
-    & 1.64e-11
-    & 8.61e-6
-    & 3.55e-11
-    & 2.45e-5
+    & \cellcolor{lightgray!76}{-24.83}
+    & \cellcolor{lightgray!94}{-11.66} 
+    & \cellcolor{lightgray!77}{-24.06} 
+    & \cellcolor{lightgray!75}{-10.62} 
     \\ 
     flat
     & yes
-    & 1.69e-11
-    & 5.31e-5
-    & 4.43e-11
-    & 2.01e-5
+    & \cellcolor{lightgray!76}{-24.80} 
+    & \cellcolor{lightgray!96}{-9.84}
+    & \cellcolor{lightgray!77}{-23.84}
+    & \cellcolor{lightgray!95}{-10.81}
     \\ \addlinespace[0.1cm]
     informed
     & no
-    & 9.98e-27
-    & 2.91e-5
-    & 9.16e-12
-    & 2.08e-4
+    & \cellcolor{lightgray!30}{-59.87} 
+    & \cellcolor{lightgray!95}{-10.44}
+    & \cellcolor{lightgray!75}{-25.42}
+    & \cellcolor{lightgray!98}{-8.48}
     \\
     informed
     & yes
-    & 1.91e-30
-    & 1.59e-6
-    & 3.06e-11
-    & 7.14e-6
+    & \cellcolor{lightgray!18}{-68.43}
+    & \cellcolor{lightgray!91}{-13.35}
+    & \cellcolor{lightgray!77}{-24.21}
+    & \cellcolor{lightgray!93}{-11.85}
     \\ \addlinespace[0.1cm]
     informed-correlated
     & no
     & NA
     & NA
-    & 7.98e-29
-    & 1.11e-3
+    & \cellcolor{lightgray!23}{-64.70} 
+    & \cellcolor{lightgray!100}{-6.80}
     \\
     informed-correlated
     & yes
     & NA
     & NA
-    & 1.70e-36
-    & 2.53e-13
+    & \cellcolor{lightgray!0}{-82.36} 
+    & \cellcolor{lightgray!71}{-29.01}
     \\
   \end{tabular}
   \label{table:listener mod}
@@ -324,8 +321,9 @@ fixed parameter $\lambda=1$ is a very poor predictor of our data. (We
 focus here on comprehension, but the same applies to production data.)
 Assuming $\lambda =1$ as the null hypothesis of a nested-model
 comparison, we can use the Savage-Dickey method to compute a Bayes
-factor. \todo{reference} Let $\mathcal{M}$ be the parameterized Model
-with model
+factor
+\cite{DickeyLientz1970:The-Weighted-Li,WagenmakersLodewyckx2010:Bayesian-hypoth}. Let
+$\mathcal{M}$ be the parameterized Model with model
 $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ and a
 flat hyperprior, not taking costs into account. Given our data we
 should adjust our beliefs in parameter value $\lambda=1$ by the Bayes
