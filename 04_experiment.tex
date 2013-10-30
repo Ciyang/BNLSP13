@@ -2,11 +2,28 @@ In the previous section we analyzed the design of the original RSA model, spelle
 
 \subsection*{Participants}
 
-We recruited 1032 US Participants via Amazon Mechanical Turk, an online crowd-sourcing tool. Each participant played a one-shot referential game either as a speaker or as a listener and received a payment of 5 cents. If a participant contributed multiple trials, only the first was included. All participants passed the attention check described below.
+We recruited 1032 US participants via Amazon's Mechanical Turk, an
+online crowd-sourcing tool. Each participant played a one-shot
+referential game either as a speaker or as a listener and received a
+payment of 5 cents. If a participant contributed multiple trials, only
+the first was included. All participants passed the attention check
+described below.
 
 \subsection*{Materials and Procedure}
 
-Each participant saw a context consisting of three objects (Figure \ref{exp_context} as an example) and reported on the number of objects in the context as an attention check. Participants in the listener conditions were told to imagine someone was talking to them and used some utterance (depending on the exact condition) to refer to exactly one of the objects in the context. Then they were asked to choose what they thought to be the intended referent. Participants in the speaker conditions were told to imagine they were talking to someone and they wanted to refer to one of the objects (indicated by a small red arrow\footnote{Participants were told that the arrow was only for illustration and thus the person they were talking to could not see it.}). Then they were asked to choose between two words to refer to it. 
+Each participant saw a context consisting of three objects (Figure
+\ref{exp_context} as an example) and reported on the number of objects
+in the context as an attention check. Participants in the listener
+conditions were told to imagine someone was talking to them who used
+some utterance (depending on the specific condition tested) to refer
+to exactly one of the objects in the context. Then they were asked to
+choose what they thought to be the intended referent. Participants in
+the speaker conditions were told to imagine they were talking to
+someone and they wanted to refer to one of the objects (indicated by a
+small red arrow\footnote{Participants were told that the arrow was
+  only for illustration and thus the person they were talking to could
+  not see it.}). Then they were asked to choose between two words to
+refer to it.
 
 \begin{figure}[htb] 
   \centering
@@ -21,21 +38,66 @@ Each participant saw a context consisting of three objects (Figure \ref{exp_cont
   \caption{A sample context}\label{exp_context}
 \end{figure}
 
-Each context had a square and a circle sharing the same color, and another circle having a different color. Hence each object had two features: shape (square/circle) and color (green/blue) and each context had two ambiguous (shared by two objects) features. In the listener salience condition, participants were told that the person talking to them was using a foreign language they could not understand, and in the other two listener conditions, the utterances used were the ambiguous feature of shape and color, respectively. In the speaker conditions, the target could be any of the three objects: the one with the unique color, the one with the unique shape and the one with both features shared. The two words for the participants to choose between were the features of color and shape of the target object.
+Each context had a square and a circle sharing the same color, and
+another circle having a different color. Hence each object had two
+features: shape (square/circle) and color (green/blue) and each
+context had two ambiguous (shared by two objects) features. In the
+listener salience condition, participants were told that the person
+talking to them was using a foreign language they could not
+understand, and in the other two listener conditions, the utterances
+used were the ambiguous feature of shape and color, respectively. In
+the speaker conditions, the target could be any of the three objects:
+the one with the unique color, the one with the unique shape and the
+one with both features shared. The two words for the participants to
+choose between were the features of color and shape of the target
+object.
 
-In order to minimize the effect of the confounding factors, we counterbalanced the positions and colors of the objects, as well as the orders of the candidate words in the speaker conditions. Thus the unique color in a context could be either blue (as in Fig. \ref{exp_context}) or green and the order of the objects could be any of the permutations\footnote{Due to the scale of our preliminary experiment we did not counterbalance the shape of the objects, i.e., a context always has one square and two circles. }.
+In order to minimize the effect of the confounding factors, we
+counterbalanced the positions and colors of the objects, as well as
+the orders of the candidate words in the speaker conditions. Thus the
+unique color in a context could be either blue (as in
+Fig. \ref{exp_context}) or green and the order of the objects could be
+any of the permutations.\footnote{Due to the scale of our preliminary
+  experiment we did not counterbalance the shape of the objects, i.e.,
+  a context always had one square and two circles.}
 
 \subsection*{Design}
 
-There are four major designs in our own experiment that differ from the original experiment in \cite{Frank}. First of all, the original experiment used the betting paradigm, i.e., participants were asked to bet over a range of options and they were instructed that the amount of money that is bet on an option should reflect their confidence that the option is correct. Even though the betting paradigm has the merit of providing us with graded reponses from each individual participant, the caveat is that it is unclear whether it measures the belief or the action. This can lead to confusion when we are to fit the model predictions to the empirical data without knowing whether they are directly comparable. In addition, since the betting paradigm is more or less introspective in nature, it tends to be not very accurate. Thus we used forced choice in our experiment instead, which clearly measures the action and does not rely on introspection.
-Secondly, since we decided to investigate the influence of the speaker's preference as well as the listener's perceptual salience, we focused on contexts equivalent to Figure \ref{context}, which are most typical in Gricean accounts of scalar implicature, and examined different features separately.
-Thirdly, we only included the features of color and shape to ensure the vocabulary to be common knowledge, excluding the feature of texture. Finally, we did not use dotted line surrounding an object as the way to indicate the target to the speaker, as it could emphasize the feature of shape and thus add confound in the experiment. Instead we used a small arrow pointing to the target. 
+There are four major design choices in our own experiment that differ
+from the original experiment in \cite{Frank}. First of all, the
+original experiment used a \emph{betting paradigm}, i.e., participants
+were asked to bet over a range of options and they were instructed
+that the amount of money that is bet on an option should reflect their
+confidence that the option is correct. Even though the betting
+paradigm has the merit of providing us with graded reponses from each
+individual participant, the caveat is that it is unclear whether it
+measures beliefs or actions. This can lead to confusion when we are to
+fit the model predictions to the empirical data without knowing
+whether they are directly comparable. In addition, since the betting
+paradigm is more or less introspective in nature, it tends to be not
+very accurate. Thus we used a \emph{forced choice design} instead,
+which clearly measures the action, does not rely on introspection and,
+technically speaking, provides for a straightforward likelihood
+function to be used in subsequent statistical model comparison.
+Secondly, since we decided to investigate the influence of the
+speaker's preference as well as the listener's perceptual salience, we
+focused on contexts equivalent to Figure \ref{context}, which require
+reasoning that is highly reminiscent of Gricean accounts of scalar
+implicature calculation, and examined different features separately.
+Thirdly, we only included the features of color and shape to ensure
+the vocabulary to be common knowledge, excluding the feature of
+texture. Finally, we did not use dotted lines surrounding an object as
+the way to indicate the target to the speaker, as \cite{Frank} did,
+because that might unduly emphasize the feature of shape and thus be a
+confound in the experiment. Instead we used a small arrow pointing to
+the target.
 
-Despite these differences, the remaining aspects in our experiment were almost identical to those of the original one, e.g. the phrasing of the instructions.
+Despite these differences, the remaining aspects in our experiment
+were almost identical to those of the original one, e.g. the phrasing
+of the instructions.
 
-\ 
-
-The results of the speaker and listener conditions of our experiment are shown as follows.
+The results of the speaker and listener conditions of our experiment
+are as follows.
 
  
 \subsection{Speaker Conditions}
@@ -48,7 +110,7 @@ There were 432 participants in the speaker conditions, 144 in each condition. Th
   \begin{tabular}{c|ccccc}
    Target  & ``Green'' & ``Square'' & ``Blue'' & ``Circle'' & Total\\ 
      \hline
-\textcolor{green!65}{\Large{$\blacksquare$}}    & $9$        &   $135$   & -- & -- &144\\
+\textcolor{green!65}{\large{$\blacksquare$}}    & $9$        &   $135$   & -- & -- &144\\
 \textcolor{blue!65}{\Huge{$\bullet$}}           & --        &   --      & $119$ & $25$ & 144\\
 \textcolor{green!65}{\Huge{$\bullet$}}          & $63$        &   --    &  --   & $81$             &144
   \end{tabular}
@@ -56,7 +118,13 @@ There were 432 participants in the speaker conditions, 144 in each condition. Th
   \label{table:speaker}
 \end{table}
 
-From the data in Table \ref{table:speaker}, we can see that the speakers tend to choose the optimal feature more often when the target has the unique shape than when it has the unique color ($\chi^2=8.5, p<.01$). Even though they seem to prefer the feature of shape when the target's both features are shared, the difference is not statistically significant from uniform random choice ($\chi^2=2.25, p=.13$).
+From the data in Table \ref{table:speaker}, we can see that the
+speakers tend to choose the optimal feature more often when the target
+has the unique shape than when it has the unique color ($\chi^2=8.5,
+p<.01$). Even though they seem to prefer the feature of shape when
+both of the target's features are shared, the difference is not
+statistically significant from uniform random choice ($\chi^2=2.25,
+p=.13$).
 
 
 \subsection{Listener Conditions}
@@ -70,14 +138,25 @@ There were 600 participants in the listener conditions, 240 in the salience cond
    & \quad \textcolor{green!65}{\Large{$\blacksquare$}}&  \textcolor{green!65}{\Huge{$\bullet$}}& \textcolor{blue!65}{\Huge{$\bullet$}} & Total\\ 
      \hline
  Salience   \quad  & \quad  $71$      \quad    &   $30$    \quad     & $139$ \quad     & $240$      \\
- ``Green''   \quad  & \quad  $65$      \quad    &   $115$    \quad     & $0$ \quad     & $180$     \\
+ ``Green''   \quad  & \quad  $65$      \quad    &   $115$    \quad     & -- \quad     & $180$     \\
  ``Circle''   &  \quad $1$        &    $62$        & $117$ \quad     & $180$
   \end{tabular}
 
   \label{table:listener}
 \end{table}
 
-The result of the salience condition will be used as the empirical estimation of contextual salience. For the other two conditions, the object with both features shared (the green circle in the above table, but note that we counterbalanced colors) is what the Gricean pragmatic account predicts to be the target. The result in Table \ref{table:listener} shows that when the message is ``Green'', listeners prefer the green circle which is predicted by the Gricean pragmatics, while they tend to stick to the blue circle which is more perceptually salient when the message is ``Circle''. The behavioral patterns in both conditions are significantly different from uniform random choice, and they significantly differ from each other in respect of whether they conform to the predictions by Gricean pragmatic theory.
+The result of the salience condition will be used as the empirical
+estimation of contextual salience. For the other two conditions, the
+object with both features shared (the green circle in the above table,
+but note that we counterbalanced colors) is what the Gricean pragmatic
+account predicts to be the target. The result in Table
+\ref{table:listener} shows that when the message is ``Green'',
+listeners prefer the green circle which is predicted by the Gricean
+pragmatics, while they tend to stick to the blue circle which is more
+perceptually salient when the message is ``Circle''. The behavioral
+patterns in both conditions are significantly different from uniform
+random choice, and they significantly differ from each other in
+whether they conform to the predictions by Gricean pragmatic theory.
 
 %%% Local Variables: 
 %%% mode: latex

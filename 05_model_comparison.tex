@@ -1,25 +1,26 @@
 We use a Bayesian approach to model comparison
-\cite{Jeffreys1961:Theory-of-Proba,KassRaftery1995:Bayes-Factors,Jaynes2003:Probability-The,VandekerckhoveMatzke2013:Model-Compariso} to find out which
-model best explains the observed data. The models under investigation
-have unspecified parameters: the speaker's degree of of rationality
-$\lambda_\mathrm{S}$, the cost of adjectives $c$, and, for those
-listener models that have an action-oriented communication goal, the
-listener's degree of rationality $\lambda_\mathrm{L}$. Since there is
-no principled theory to determine the value of the parameters, we will
-rely mostly on relatively uninformed hyperpriors (so-called to
-distinguish them from the salience priors). Based on a specification
-of hyperpriors, we calculate the models' \emph{evidences} and compare
-them by their \emph{Bayes factors}. The evidence of a model $M$ is the
-weighted average of the likelihood of observing the data under all
-parameter values:
+\cite{Jeffreys1961:Theory-of-Proba,KassRaftery1995:Bayes-Factors,Jaynes2003:Probability-The,VandekerckhoveMatzke2013:Model-Compariso}
+to find out which alternative best explains the observed data. The
+models under investigation have unspecified parameters: the speaker's
+degree of of rationality $\lambda_\mathrm{S}$, the cost of adjectives
+$c$, and, for those listener models that have an action-oriented
+communication goal, the listener's degree of rationality
+$\lambda_\mathrm{L}$. Since there is no principled theory to determine
+the value of the parameters, we will rely mostly on relatively
+uninformed hyperpriors (so-called to distinguish them from the
+salience priors). Based on a specification of hyperpriors, we
+calculate the models' \emph{evidences} and compare them by their
+\emph{Bayes factors}. The evidence of a model $M$ is the weighted
+average of the likelihood of observing the data under all parameter
+values:
 \begin{align}
   \label{BMA}
   \mathrm{Ev}(M)= \int \Pr(\theta) \cdot \Pr(D  \mid  M, \theta)\, \mathrm{d}\theta,
 \end{align}
 where $\Pr(\theta)$ is the hyperprior over parameter(-tuple) $\theta$
-associated with $M$ and $\Pr(D  \mid  M, \theta)$ is the likelihood of the
-observed data $D$ given the model $M$ and each concrete instantiation
-of the parameter(-tuple) $\theta$. The Bayes factor
+associated with model $M$ and $\Pr(D \mid M, \theta)$ is the
+likelihood of the observed data $D$ given $M$ and each concrete
+instantiation of the parameter(-tuple) $\theta$. The Bayes factor
 $K^{M_1}_{M_2}$ is a comparative measure for the plausibility of model
 $M_1$ over $M_2$, given their respective hyperpriors and the data in
 question:
@@ -54,14 +55,14 @@ $\lambda$ lie safely in the chosen interval for all models. Next, to
 allow for the possibility of speaker preferences (nouns over
 adjectives or vice versa), we consider two types of hyperpriors for
 costs $c$. The first hyperprior has $\Pr(c)= \delta(c)$, the Dirac
-delta distribution, that assigns all probability mass $1$ to
-$c=0$. This captures the assumption that there is no speaker
-preference. The second hyperprior is $\mathcal{U}_{(-0.4,0.4)}$, which
-captures the notion that a preference exists, without commitment to
-either direction. We restrict our attention to the interval
-$(-0.4,0.4)$, because we consider higher levels of cost implausible,
-given that utilities for successful communication live in $[0,1]$ and
-that we believe that strive for communicative success should outrank
+delta distribution, that assigns all probability mass to $c=0$. This
+captures the assumption that there is no speaker preference. The
+second hyperprior is $\mathcal{U}_{(-0.4,0.4)}$, which captures the
+notion that a preference exists, without commitment to either
+direction. We restrict our attention to the interval $(-0.4,0.4)$,
+because we consider higher levels of cost implausible, given that
+utilities for successful communication live in $[0,1]$ and that we
+believe that strive for communicative success should outrank
 preference satisfaction in a rational model of communication. Taken
 together, there are four speaker models, two hyperpriors for each, so
 that we compare eight Models with respect to their evidences.
@@ -79,7 +80,14 @@ Model that does allow for a speaker preference strongly more plausible
 than its counterpart that does not. A look at the posterior likelihood
 of $c$ for each speaker model informs us that our data supports the
 belief in a speaker preference for nouns, see
-Figure~\ref{fig:cost_post_s}.
+Figure~\ref{fig:cost_post_s}.\footnote{\label{fn:truth-restriction-S}A
+  technical aside: formally, action-based speaker models, as
+  formulated in Section~\ref{sec:alternatives}, assign a non-zero
+  probability to the event that a speaker chooses a description which
+  is not true of the target object (unlike belief-based models). But
+  since subjects in our experiments could only select between true
+  alternatives, the predictions of action-based speaker models were
+  restricted to truthful choices in the reported model comparison.}
 %
 \begin{table}[htb] 
   \centering 
@@ -138,9 +146,9 @@ Figure~\ref{fig:cost_post_s}.
   \label{fig:cost_post_s}
 \end{figure}
 %
-In sum, our data supports the belief that the speaker does not take
-into account the preceptual salience of the listener, while having her
-own preference for shape terms over color terms.
+In sum, our data supports the view that the speaker does not take into
+account the preceptual salience of the listener, while having her own
+preference for shape terms over color terms.
 
 
 \paragraph{Listener data.} Each listener model has a speaker model
@@ -158,7 +166,17 @@ to the side listener models that embed speaker models that are highly
 implausible, given the speaker data as discussed above. Effectively,
 this discards listener models that include speaker models that take
 the listener's salience prior into account. These two principled
-restrictions leave us with four listener models to compare.
+restrictions leave us with four listener models to
+compare.\footnote{Similar to the remarks about speaker models in
+  Footnote~\ref{fn:truth-restriction-S}, we need to be mindful about
+  the fact that action-based listener models assign non-zero
+  probability to the choice of referents of which the given
+  description is not true. Here, despite the fact that subjects in our
+  experiments could in principle choose referents of which the given
+  description is not true (this indeed happened once), we restricted
+  the predictions of these models to only semantically compatible
+  referent choices. We then discarded the one data point in which a
+  subject choose a semantically non-compatible referent.}
 
 Further variation comes from different relevant
 hyperpriors. Belief-based models of the listener have the same
@@ -173,16 +191,16 @@ models, which also have an additional parameter
 $\lambda_\mathrm{L}$. Hyperpriors for the latter encode our prior
 beliefs about the listener's actual rationality.
 
-We consider a variety of hyperpriors that differ with respect to
-whether they take the speaker's costs into account, whether the
-listener's beliefs about the speaker's rationality and preferences are
-uninformed (i.e., flat) or informed (i.e., given by the posterior
-likelihood of parameters given the actual speaker data) and, in
-action-based models, whether the listener's level of rationality
-corresponds to his ``informed'' beliefs. The latter option effectively
-implements the assumption that there is a tight correlation between
-the speaker's actual rationality, the listener's actual rationality
-and the listener's beliefs about the speaker's rationality.
+We consider a variety of hyperpriors that differ in whether they take
+the speaker's costs into account, whether the listener's beliefs about
+the speaker's rationality and preferences are uninformed (i.e., flat)
+or informed (i.e., given by the posterior likelihood of parameters
+given the actual speaker data) and, in action-based models, whether
+the listener's level of rationality corresponds to his ``informed''
+beliefs. The latter option effectively implements the assumption that
+there is a tight correlation between the speaker's actual rationality,
+the listener's actual rationality and the listener's beliefs about the
+speaker's rationality.
 
 Concretely, we consider the following ``flat'' hyperpriors:
 \begin{align*}
@@ -196,8 +214,8 @@ Concretely, we consider the following ``flat'' hyperpriors:
 \end{align*}
 for belief-based and action-based models respectively, where $\Pr(c)$
 is the hyperprior for the speaker's preference parameter $c$. When
-$\Pr(x) = \delta(c)$ we have a hyperprior that does not take costs
-into account; otherwise we assume $\Pr(x) =
+$\Pr(c) = \delta(c)$ we have a hyperprior that does not take costs
+into account; otherwise we assume $\Pr(c) =
 \mathcal{U}_{(-0.4,0.4)}(c)$, as before.
 
 Hyperpriors that capture the idea that the listener's beliefs are good
@@ -224,7 +242,7 @@ the relevant posterior. All of the three types of informed hyperpriors
 were tested in two varieties: whether the listener takes the sender's
 preferences into account or not. If he does not, the posterior
 $\Pr(\lambda_\mathrm{S},c \mid D_\mathrm{S}, M_\mathrm{S})$ is derived
-from a speaker-hyperprior $\Pr(c) = \delta{c}$; otherwise from $\Pr(c)
+from a speaker-hyperprior $\Pr(c) = \delta(c)$; otherwise from $\Pr(c)
 = \mathcal{U}_{(-0.4,0.4)}(c)$.
 
 Taken together, we consider two belief-based models, paired with four
@@ -236,7 +254,7 @@ meant to address the following general questions:
   belief-based or action-based?
 \item Does the listener take the estimated salience prior into account
   or not?
-\item Is the listener's belief in the speaker's level of rationality
+\item Is the listener's belief about the speaker's level of rationality
   ``correct'', i.e., in line with the observed speaker data?
 \item Is the listener's level of rationality related to the speaker's
   actual level of rationality?
@@ -301,9 +319,9 @@ the Models listed in Table~\ref{table:listener mod}.
   \label{table:listener mod}
 \end{table}
 
-The most striking contrast is that models that do not take the
+The most striking contrast is that Models that do not take the
 salience prior into account fare much worse than those that do. The
-data makes a total rejection of models that rely on uninformative
+data makes a total rejection of Models that rely on uninformative
 salience priors strongly plausible.
 
 Another eye-catching feature is that there is a clear winner in the
@@ -324,9 +342,7 @@ priors into account, with the exception of
 $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ are
 equally plausible, by common standards of Bayes factor
 comparisons. This is despite the fact that action-based models have an
-additional parameter. It seems that this parameter does not do harm,
-but does help to accommodate the assumption that the listener takes
-the speaker's preferences into account. 
+additional parameter.
 
 Action-based models are also better at accommodating the idea that the
 listener's estimate of the speaker behavior is roughly correct. The
@@ -335,10 +351,9 @@ this case. In other words, action-based models, possibly due to the
 added flexibility of another parameter, are better at explaining
 production and comprehension data in unison.
 
-This latter point is of interest with respect to the findings of Frank
-\& Goodman that a single parameter choice $\lambda=1$ provided a good
-fit for both production and comprehension data. The
-rational-speech-act model
+This latter point is of interest with respect to the findings of
+\cite{Frank} that a single parameter choice $\lambda=1$ provided a
+good fit for both production and comprehension data. The RSA model
 $\rho_{\mathrm{b}\mathcal{U}}(\sigma_{\mathrm{b}\mathcal{S}})$ with
 fixed parameter $\lambda=1$ is a very poor predictor of our data. (We
 focus here on comprehension, but the same applies to production data.)
@@ -359,22 +374,6 @@ factor (computed approximately via MCMC sampling):
 where $D_\mathrm{L}$ is the listener data. That means that our data
 provides very strong evidence that the null hypothesis $\lambda=1$ is
 incorrect.
-
-\bigskip
-
-Combining the model comparison results for both the speaker and the
-listener models, it seems that if we treat the speaker's preference as
-some lexical salience which together with the listener's perceptual
-salience constitutes the contextual salience of the referential game,
-then contextual salience actually manifests \emph{lack of} common
-knowledge between the speaker and the listener rather than the
-presence of it, since they both have some preference that biases their
-decisions but they are unaware of each other's such
-preference. However, there is indeed something common between the
-speaker and the listener, i.e., the distribution of the degree of
-rationality. Also, the listener's belief about the speaker is correct
-modulo the speaker's private lexical salience.
-
 
 %%% Local Variables: 
 %%% mode: latex
