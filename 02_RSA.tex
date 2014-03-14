@@ -116,11 +116,22 @@ The speaker acts sub-optimally by choosing the utterance that soft-maximizes her
 \end{equation}
 where $\lambda_\mathrm{S}$ is a parameter measuring the speaker's
 degree of rationality, i.e., to what extent the speaker sticks to the
-strict optimum. The cost term is used to encode preference in
+strict optimum\footnote{Mathematically, it can be shown that when $\lambda_\mathrm{S}=0$, $\sigma(m \mid t)$ is uniformly distributed over all messages, meaning that the speaker just randomly selects one of the messages without any optimality consideration. 
+On the other hand, when $\lambda_\mathrm{S}\rightarrow \infty$, 
+$\sigma(m \mid t)$ is non-zero only when $m$ yields the maximal utility, 
+meaning that the speaker only selects the strictly optimal option(s).
+This rule is widely used in the AI literature (e.g., \cite{Sutton1998RL}) and 
+is also known as the \emph{exponential rule}.}.
+The cost term is used to encode preference in
 different utterances, be it about the utterances' lengths or syntactic
 categories.
 
-From (\ref{Bayesian_literal})-(\ref{Bayesian_sender_softmax}) we obtain the speaker's production rule:
+From (\ref{Bayesian_literal})-(\ref{Bayesian_sender_softmax}) we obtain the speaker's production rule\footnote{Note that we can further simplify (\ref{Bayesian_speaker}) as follows: $\exp(\lambda_\mathrm{S} \cdot (\log \mathcal{U}(t\mid \intp{m})-\mbox{Cost}(m)))
+=\exp(\lambda_\mathrm{S} \log \mathcal{U}(t\mid \intp{m}) \cdot \exp(-\lambda_\mathrm{S}\cdot \mbox{Cost}(m))
+=(\mathcal{U}(t\mid \intp{m}))^{\lambda_\mathrm{S}}\cdot \exp(-\lambda_\mathrm{S}\cdot \mbox{Cost}(m))$. Incidentally, if we do not take costs into account, i.e., let $\mbox{Cost}(m)\equiv 0$, then (\ref{Bayesian_speaker}) reduces to $\sigma(m \mid t) \propto (\mathcal{U}(t\mid \intp{m}))^{\lambda_\mathrm{S}}$, which is effectively a \emph{power rule} that soft-maximizes $\mathcal{U}(t\mid \intp{m})$. In this respect 
+(\ref{Bayesian_speaker}) can be seen as an action-oriented speaker model (the exact definition of which will be given in the next section) equipped with 
+a different kind of soft-max rule. However, we note that this is a mere technical coincidence, and as a first step, throughout this paper we only consider the exponential 
+rule as the soft-max rule. \cite{Worthy2008ratio} provides a detailed discussion and empirical analyses on the differences between the exponential and power rules.}:
 
 \begin{equation} \label{Bayesian_speaker}
 \sigma(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\log \mathcal{U}(t\mid \intp{m})-\mbox{Cost}(m))) \enspace .
