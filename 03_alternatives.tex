@@ -88,8 +88,19 @@ belief.\footnote{Note that the two views are clearly intimately
   investigate in this paper reflects the distinction.} Thus, according
 to this view, the informativeness of a message would be measured as
 the probability of the listener choosing the intended
-referent. Formally speaking, we have the action-oriented speaker model\footnote{There might be concern about whether there should be another soft-max step for the literal listener's choice probability $\rho_0(t\mid m)$ in order for it to be action-oriented. 
-This depends on the precise conceptual status of the literal listener in the model and to our knowledge there is no consensus yet. We tend to think of a literal listener as an automatic subconscious process that involves no optimality reasoning or decision-making. Thus we consider it appropriate to use $\rho_0(t\mid m)$ as the action of the literal listener. However, we do agree that in principle there can be a model whose literal listener does a soft-max over the salience prior, and such a model can be similarly included in the model comparison.}:
+referent. Formally speaking, we have the action-oriented speaker
+model:\footnote{There might be concern about whether there should be
+  another soft-max step for the literal listener's choice probability
+  $\rho_0(t\mid m)$ in order for it to be action-oriented.  This
+  depends on the precise conceptual status of the literal listener in
+  the model and to our knowledge there is no consensus yet. We tend to
+  think of a literal listener as an automatic subconscious process
+  that involves no optimality reasoning or decision-making. Thus we
+  consider it appropriate to use $\rho_0(t\mid m)$ as the action of
+  the literal listener. However, we do agree that in principle there
+  can be a model whose literal listener does a soft-max over the
+  salience prior, and such a model can be similarly included in the
+  model comparison.}
   
 \begin{equation} \label{Bayesian_speaker_action}
 \sigma_\mathrm{a}(m \mid t) \propto \exp(\lambda_\mathrm{S} \cdot (\rho_0(t\mid m)-\mbox{Cost}(m))) \enspace .
