@@ -1,0 +1,51 @@
+Reviewer A:
+
+> There is a large literature on perspective-taking and simulation in theory of 
+> mind tasks, which would be informative to discuss in the context of this issue.
+
+Indeed, it would have been great to discuss more on this, but since we are approaching the page limit we could not elaborate much further on this. 
+
+> First, the authors show that listeners take into account salience and that
+> speakers do not model the listeners' salience sensitivity; but they do
+> not evaluate whether listeners believe that speakers model their
+> salience sensitivity (the relevant model comparisons are excluded from
+> the analyses presented in the paper). It would be rather
+> surprising if the speakers' model of the listeners was deficient in
+> this respect, and the listeners correctly modeled this
+> deficiency. This analysis would be straightforward to include in the
+> current work. 
+
+We added a paragraph discussing this issue in the conclusion section (the 2nd paragraph). It is less surprising if we take the perspective that the listener is simulating the speaker by using his own production module, which has the same deficiency.
+
+> Second, in future work, it may be interesting to
+> determine if more perspective-taking can be experimentally
+> induced, e.g. by having speakers first play as listeners, and
+> vice-versa.
+
+   This is indeed an interesting and important empirical question. We did not mention it as this is not the focus 
+of the paper.
+
+
+> In evaluating d), the authors should also consider whether
+> listeners model speakers as having the same degree of rationality as
+> them (i.e. whether there is only a single lambda parameter in the action-oriented
+> listener model). 
+
+  We did consider this possibility and did not include it due to space reasons. The issue is now discussed in the 3rd paragraph of the conclusion section. 
+
+> It is also not clear whether, in evaluating c), the paper correctly
+> models the speaker who believes that the listener is
+> action-oriented. The paper uses equation 9) in order to model this speaker. This equation represents
+> a speaker who believes that the listener chooses referents in
+> proportion to their posterior probability. However, if the speaker is
+> modeling the listener as a decision-maker, then it seems more accurate
+> for the speaker to represent the listener as a soft-max optimizer, as
+> in Equation 14).
+
+  This is a good point and the issue is complicated. We added some discussion in footnote 9. On the conceptual level, it might be argued that choosing a referent according to perceptual salience does not involve rational decision making and thus there may be no need to introduce a soft-max step for the literal listener. On the empirical side, since the perceptual salience was measured using the forced choice paradigm, it is already action-oriented, so the problem is rather about whether we need to introduce a latent salience prior for the belief-oriented models. A very informative next step would be to compare the results for salience conditions from the betting and forced choice paradigms and see whether an extra soft-max step is needed. 
+
+Reviewer B:
+
+Reviewer B was unhappy with the presentation of the formalism, because it seemed cluttered and intelligible to him. We reformulated many passages and added in particular footnotes 5 and 6 to discuss the motivation of the exponential choice rule and its relation to the power rule. 
+
+Reviewer B wanted to see more details about the experimental design of the original paper. We therefore included this in Section 2 with a few paragraphs, a figure that depicts all situations used and footnotes detailing the original experiment and foreshadowing the changes in our replication. 
